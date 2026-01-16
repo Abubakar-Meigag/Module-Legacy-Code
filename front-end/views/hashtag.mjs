@@ -17,14 +17,14 @@ import { createHeading } from "../components/heading.mjs";
 function hashtagView(hashtag) {
   destroy();
 
-  // const normalizedHashtag = hashtag.startsWith("#") ? hashtag : `#${hashtag}`;
-  // if (normalizedHashtag !== state.currentHashtag) {
-  //   apiService.getBloomsByHashtag(hashtag);
-  // }
-
-  if (hashtag !== state.currentHashtag) {
+  const compareHashtag = hashtag.startsWith("#") ? hashtag : `#${hashtag}`;
+  if (compareHashtag !== state.currentHashtag) {
     apiService.getBloomsByHashtag(hashtag);
   }
+
+  // if (hashtag !== state.currentHashtag) {
+  //   apiService.getBloomsByHashtag(hashtag);
+  // }
 
   renderOne(
     state.isLoggedIn,
