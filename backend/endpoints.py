@@ -156,15 +156,13 @@ def send_bloom():
     if type_check_error is not None:
         return type_check_error
 
+    if len(request.json["content"] > 280):
+        return make_response({"success": False, "message": "Bloom must be 280 characters or less"}, 400);
+    
     user = get_current_user()
-
-    blooms.add_bloom(sender=user, content=request.json["content"])
-
-    return jsonify(
-        {
-            "success": True,
-        }
-    )
+    blooms.add_bloom(sender=user, content=request.json["content"])    
+    
+    return jsonify({"success": True}, 201)
 
 
 def get_bloom(id_str):

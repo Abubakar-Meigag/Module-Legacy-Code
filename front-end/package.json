@@ -8,8 +8,9 @@
     "test": "npx playwright test --ui"
   },
   "devDependencies": {
-    "@playwright/test": "^1.41.2",
-    "@types/node": "^20.11.24"
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^20.11.24",
+    "playwright": "^1.57.0"
   },
   "keywords": [],
   "author": "",
